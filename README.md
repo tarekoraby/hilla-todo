@@ -18,6 +18,8 @@ http://localhost:8080 in your browser.
 You can also import the project to your IDE of choice as you would with any
 Maven project.
 
+![To-do app](src/main/resources/META-INF/resources/images/hilla-todo-running.png)
+
 ## Deploying to Production
 
 To create a production build, call `mvnw clean package -Pproduction` (Windows),
