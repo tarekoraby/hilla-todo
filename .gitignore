@@ -4,3 +4,9 @@ target/
 node_modules/
 frontend/generated/
 vite.generated.ts
+.idea
+*.iws
+*.iml
+*.ipr
+frontend/themes/hilla-todo/theme-editor.css
+.idea/workspace.xml
