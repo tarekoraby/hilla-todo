@@ -16,16 +16,20 @@ export default function TodoView() {
 
     const { model, field, submit, reset, invalid } = useForm(TodoModel, {
         onSubmit: async (todo: Todo) => {
-            const saved = await TodoEndpoint.save(todo) ?? todo;
-            setTodos([...todos, saved]);
-            reset();
+            const saved = await TodoEndpoint.save(todo);
+            if (saved) {
+                setTodos([...todos, saved]);
+                reset();
+            }
         }
     });
 
     async function changeStatus(todo: Todo, done: boolean) {
         const newTodo = { ...todo, done: done };
-        const saved = await TodoEndpoint.save(newTodo) ?? newTodo;
-        setTodos(todos.map(item => item.id === todo.id ? saved : item));
+        const saved = await TodoEndpoint.save(newTodo);
+        if (saved) {
+            setTodos(todos.map(item => item.id === todo.id ? saved : item));
+        }
     }
 
     return (
